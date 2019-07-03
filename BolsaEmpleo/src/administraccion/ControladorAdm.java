@@ -16,9 +16,14 @@ public class ControladorAdm {
 		}
 		return parroquias;
 	}
-	public static void verParroquia(String idParroquia)throws Exception{
-		System.out.println("ID de la parroquia:"+idParroquia); 
-		String nombreParroquia = AdParroquia.nombreParroquia(idParroquia);
+	public static String verParroquia(String idParroquia)throws Exception{
+		String nombreParroquia ="";
+		System.out.println(idParroquia);
+		if (!idParroquia.equals("0")) {
+			nombreParroquia = AdParroquia.nombreParroquia(idParroquia);
+			
+		}
+		return nombreParroquia;
 	}
 	
 

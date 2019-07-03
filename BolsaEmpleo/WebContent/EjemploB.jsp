@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <%
  String parroquia =  request.getParameter("parroquia") != null ? request.getParameter("parroquia") : "0";
- ControladorAdm.verParroquia(parroquia); 
+ String nombreParroquia= ControladorAdm.verParroquia(parroquia); 
  %>
 
 <html>
@@ -18,10 +18,10 @@
 	%>
 	No ha seleccionada nada
 	<%}else{ %>
-	<%=parroquia%>
+	<%=nombreParroquia%>
 	<%} %>
 	</h1>
-	
+	<a href="Ejemplo.jsp">Regresar</a>
 	
 </body>
 </html>

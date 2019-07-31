@@ -138,8 +138,8 @@ public class Adm {
 				"CODIGOPERSONA)" + 
 				"VALUES (" + 
 				estado + 
-				"'"+fecha+"'" + 
-				"'"+clave+"'" + 
+				",'"+fecha+"'" + 
+				",'"+clave+"'," + 
 				idP+")";
 		BDD.ingresar(sentencia);
 	}
@@ -148,21 +148,33 @@ public class Adm {
 		String nombre = "SELECT CODIGOPERSONA" + 
 				"		FROM perpersona " + 
 				"		ORDER by CODIGOPERSONA DESC limit 1";
-		ArrayList nombres = BDD.consultar1(nombre); 
-		nombreParroquia = nombres.toString();
+		ArrayList nombres = BDD.consultar1(nombre);
+		String idPersona = nombres.get(0).toString();
+		String idPersona1 = idPersona.replace("[", "");
+		String idPersona2 = idPersona1.replace("]", "");
+		nombreParroquia = idPersona2;
 		return nombreParroquia;
 		
 	}
 	public static void ingresar(String cEDULA, String aPELLIDOS, String nOMBRES, String dIRECCION, String iDPARROQUIA,
-			String eMAIL, String tELEFONOD, String tELEFONOOF, String tELEFONOC) throws Exception {
+			String eMAIL, String tELEFONOD, String tELEFONOOF, String tELEFONOC, String grupo) throws Exception {
 		String respuesta = "";
 		String sentencia = "INSERT INTO perpersona " + "(CEDULA,APELLIDOS,NOMBRES," + "DIRECCION,IDPARROQUIA,"
 				+ "EMAIL,TELEFONOD,TELEFONOOF,TELEFONOC) " + "VALUES (" + cEDULA + ",'" + aPELLIDOS + "'," + "'"
 				+ nOMBRES + "'," + "'" + dIRECCION + "'," + "" + iDPARROQUIA + ",'" + eMAIL + "', " + "'" + tELEFONOD
 				+ "'," + "'" + tELEFONOOF + "','" + tELEFONOC + "')";
 		BDD.ingresar(sentencia);
+		
 
 	}
+public static String idUsuariop() throws Exception {
+	String sentencia3 ="SELECT MAX(`idPerUsuario`) FROM `perusuario`";
+	ArrayList nombres = BDD.consultar1(sentencia3); 
+	String idPersona = nombres.get(0).toString();
+	String idPersona1 = idPersona.replace("[", "");
+	String idPersona2 = idPersona1.replace("]", "");
+	return idPersona2;
+}
 
 	public static void actualizar(String cEDULA, String aPELLIDOS, String nOMBRES, String dIRECCION, String iDPARROQUIA,
 			String eMAIL, String tELEFONOD, String tELEFONOOF, String tELEFONOC, String id) throws Exception {

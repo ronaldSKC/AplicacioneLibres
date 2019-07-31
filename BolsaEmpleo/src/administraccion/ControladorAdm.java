@@ -47,8 +47,8 @@ public class ControladorAdm {
 	public static void ingresar(String cEDULA, String aPELLIDOS, 
 			String nOMBRES, String dIRECCION, 
 			String iDPARROQUIA, String eMAIL, 
-			String tELEFONOD, String tELEFONOOF, String tELEFONOC) throws Exception {
-		Adm.ingresar(cEDULA, aPELLIDOS, nOMBRES, dIRECCION, iDPARROQUIA, eMAIL, tELEFONOD, tELEFONOOF, tELEFONOC);
+			String tELEFONOD, String tELEFONOOF, String tELEFONOC, String grupo) throws Exception {
+		Adm.ingresar(cEDULA, aPELLIDOS, nOMBRES, dIRECCION, iDPARROQUIA, eMAIL, tELEFONOD, tELEFONOOF, tELEFONOC,grupo);
 	
 	}
 	public static void ingresarU(String estado, String fecha, String clave, String idP ) throws Exception{

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bdd.BDD;
+
 @WebServlet("/log-in/CrearPersona")
 public class CrearPersona extends HttpServlet {
 	@Override
@@ -21,14 +23,20 @@ public class CrearPersona extends HttpServlet {
 				numTelefonoO = request.getParameter("telefonoO"),
 				numTelefonoC = request.getParameter("telefonoC"),
 				email = request.getParameter("email"),
-				idParroquia = request.getParameter("f_parroquia");
+				idParroquia = request.getParameter("f_parroquia"),
+				grupo = request.getParameter("grupo");
 		Date fecha = new Date();
 		
 		
 	try {
-		ControladorAdm.ingresar(cedula, apellidos, nombres, direccion, idParroquia, email, numTelefonoD, numTelefonoO, numTelefonoC);
+		ControladorAdm.ingresar(cedula, apellidos, nombres, direccion, idParroquia, email, numTelefonoD, numTelefonoO, numTelefonoC, grupo);
 		String idP = Adm.codpersona();
-		ControladorAdm.ingresarU("4", fecha.toString(), "1234abcd", idP);
+		String fecha1 = "2019-"+fecha.getMonth()+"-"+fecha.getDay();
+		ControladorAdm.ingresarU("4", fecha1, "1234abcd", idP);
+		String idPersona2 = Adm.idUsuariop();
+		String sentencia2= "INSERT INTO `grupoperusuario`(`idPerUsuario`, `idGrupoUsuario`) VALUES ("+idPersona2+","+grupo+")";
+		BDD.ingresar(sentencia2);
+		
 		EnvioCorreo enviar = new EnvioCorreo();
 		boolean resultado = enviar.enviarCorreo(email, "Su contraseña es: 1234abcd");
 

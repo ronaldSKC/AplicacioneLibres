@@ -1,7 +1,6 @@
 package administraccion;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import bdd.BDD;
 
@@ -47,8 +46,7 @@ public class AdParroquia {
 				+ "where IDPARROQUIA="+idParroquia;
 		
 		ArrayList nombres = BDD.consultar1(nombre); 
-		Vector nombresP = (Vector)nombres.get(0);
-		nombreParroquia = nombresP.get(0).toString().trim();
+		
 		return nombreParroquia;
 	}
 	

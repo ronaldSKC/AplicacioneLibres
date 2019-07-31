@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
 
 public class BDD {
 	
@@ -67,6 +69,14 @@ public class BDD {
 		System.out.println(cifras);
 		return cifras;
 		
+	}
+	public static int ingresar(String sentencia) throws Exception{
+		System.out.println("resultado");
+		int resultado ;
+		Statement p = st();
+		resultado = p.executeUpdate(sentencia);
+		System.out.println("resultado1"+resultado);
+		return resultado;
 	}
 	
 	public static ResultSet consultar(String consulta) throws Exception{
@@ -190,6 +200,27 @@ public class BDD {
 	public String getErrorGeneral() {
 		return errorGeneral;
 	}	
+	public static ResultSet ejecutarConsulta1(String consulta) throws SQLException {
+		ResultSet resultado = null;
+		Connection conexion = con();
+		Statement sentencia = conexion.createStatement();
+		resultado = sentencia.executeQuery(consulta);
+		return resultado;
+	}
+	
+	public static int ejecutarActualizacion(String consulta) throws SQLException {
+		Connection conexion = con();
+		Statement sentencia = conexion.createStatement();
+		return sentencia.executeUpdate(consulta);
+	}
+	public static void instruccion(String sql) throws Exception{
+    	Connection con = con();
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.executeUpdate();
+        //pst = con.prepareStatement("commit");
+        //pst.executeUpdate();
+        con.close();
+}
 	
 }
 

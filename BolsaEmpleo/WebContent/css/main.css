@@ -1,0 +1,144 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 24px;
+	font-family: 'Arial', sans-serif;
+}
+
+body {
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #FFFFFF;
+}
+
+.login_container {
+	background-color: #FFFFFF;
+	widht: 1000px;
+	border-top: solid 10rem #F39B53;
+	box-sizing: border-box;
+	padding: 3rem 0;
+	
+}
+
+
+.login_top {
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+.login_title {
+	color: #8a8c8b;
+}
+
+.login_title span {
+	color: #f39b53;
+}
+
+.login_img {
+	width: 8rem;
+	border-radius: 50%;
+}
+
+.login_form {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem 2 rem 0;
+}
+
+input[type=text], [type=password]{
+	height: .5rem;
+	margin: .5rem 0;
+	padding: 1rem;
+	transition: all .7s;
+}
+
+input[type=text]:focus, [type=pasword]:focus{
+	border-color: #C8C8C8;
+	background-color: #EFEFEF;
+}
+
+.btn_submit {
+	height: 2.5rem;
+	border: none;
+	background-color: #31B1E5;
+	color: white;
+	padding: .5px;
+	margin: .5rem 0 .3rem;
+}
+
+.btn_submit:hover {
+	backgroung-color: #39A1E5;
+}
+
+.btn_invitado {
+	height: 2.5rem;
+	border: none;
+	background-color: #31B1E5;
+	color: white;
+	padding: .5px;
+	margin: .5rem 0 .3rem;
+}
+
+.btn_invitado:hover {
+	backgroung-color: #39A1E5;
+}
+.form_recover {
+	color: #000000;
+	text-decoration: none;
+	text-align: left;
+	font-size: 10px;
+}
+
+.form_recover:hover {
+	color: #d1c9c9
+}
+
+.form_registro {
+	color: #000000;
+	text-decoration: underline;
+	text-align: center;
+	font-size: 14px;
+}
+
+.form_registro:hover {
+	color: #0909f1
+}
+
+
+.combo_box {
+  position: relative;
+  border: 1px solid #ccc;
+  width: 300px;
+  overflow: hidden;
+  background-color: #fff;
+}
+  
+.combo_box:before {
+    content: '';
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 5px 0 5px;
+    border-color: #000000 transparent transparent transparent;
+    z-index: 5;
+    pointer-events: none;
+}
+  
+.combo_box select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    appearance: none;
+}
